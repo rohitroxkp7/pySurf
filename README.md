@@ -17,8 +17,8 @@ presets produce consistent outward `i × j` normals, and shared block edges
 are node-coincident so pyHyp's connectivity detection just works.
 
 <p align="center">
-  <img src="figs/cone_3d.png" width="420" alt="Closed cone surface mesh: apex-resolving O-grid, watertight, extruded with pyHyp and run in ADflow at Mach 1.2"/>
-  <img src="figs/cone_base.png" width="330" alt="Base view: disk O-grid cap conforming to the cone base circle"/>
+  <img src="figs/cone_3d.png" height="360" alt="Closed cone surface mesh: apex-resolving O-grid, watertight, extruded with pyHyp and run in ADflow at Mach 1.2"/>
+  <img src="figs/cone_base.png" height="360" alt="Base view: disk O-grid cap conforming to the cone base circle"/>
 </p>
 <p align="center"><em>Closed cone preset (13 blocks): apex resolved as a regular vertex of 4 quads,
 O-grid base cap — validated end-to-end through pyHyp extrusion and an ADflow Mach 1.2 solution.</em></p>
