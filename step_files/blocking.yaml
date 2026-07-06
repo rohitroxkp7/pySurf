@@ -1,0 +1,47 @@
+# Sidecar blocking spec for cylinder.step.
+#
+# Dimensions are reconstructed EXACTLY from the CAD file via
+# `pysurf inspect-cad` (radius, axis direction, extent), so every mesh
+# point lies on the true CAD surfaces even though the mesh is generated
+# by the analytic presets.  (Direct meshing of arbitrary CAD faces -
+# splines etc. - is the next Phase 2 step.)
+#
+# CAD facts recovered: radius 35.787007246 mm, axis +y,
+# base plane y = 0, top plane y = 109.357205 mm.
+project:
+  name: cad_cylinder
+  units: mm
+
+surfaces:
+  cylinder_side:
+    preset: cylinder_side
+    radius: 35.787007246
+    height: 109.357205
+    axis: "+y"
+    points: {i: 129, j: 65}
+
+  top_cap:
+    preset: disk_ogrid
+    radius: 35.787007246
+    axis: "+y"
+    z: 109.357205
+    normal: "+z"          # local frame -> +y outward
+    center_block: {ni: 33, nj: 33}
+    radial_points: 25
+
+  bottom_cap:
+    preset: disk_ogrid
+    radius: 35.787007246
+    axis: "+y"
+    z: 0.0
+    normal: "-z"          # local frame -> -y outward
+    center_block: {ni: 33, nj: 33}
+    radial_points: 25
+
+output:
+  directory: output
+  vtm: true
+  plot3d: true
+  json: true
+  quality_report: true
+  pyhyp_script: true

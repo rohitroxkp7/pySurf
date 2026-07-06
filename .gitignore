@@ -6,8 +6,8 @@
 /NEXT_STEPS.md
 /status.txt
 
-# generated example outputs
-examples/*/output/
+# generated mesh outputs (any directory)
+**/output/
 
 # python
 __pycache__/
