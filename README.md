@@ -12,7 +12,7 @@ global complex surface
 ```
 
 The generated surface meshes target hyperbolic volume extrusion with
-**pyHyp** (MDO Lab): Plot3D output matches pyHyp's reader exactly, all
+**[pyHyp](https://github.com/mdolab/pyhyp)** (MDO Lab): Plot3D output matches pyHyp's reader exactly, all
 presets produce consistent outward `i × j` normals, and shared block edges
 are node-coincident so pyHyp's connectivity detection just works.
 
@@ -111,7 +111,8 @@ output:
 
 ## pyHyp handoff
 
-pyHyp requirements this tool guarantees (verified against the pyHyp source):
+[pyHyp](https://github.com/mdolab/pyhyp) requirements this tool guarantees
+(verified against the [pyHyp source](https://github.com/mdolab/pyhyp)):
 
 1. ASCII Plot3D, header `nblocks`, dims `ni nj 1` (nk **must** be 1), then per
    block all X, all Y, all Z with i fastest (`readPlot3d.F90`).
