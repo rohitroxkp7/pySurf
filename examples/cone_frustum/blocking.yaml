@@ -1,0 +1,36 @@
+# Closed frustum: conical side + two O-grid caps (top small, bottom
+# large), all conformal at 128 circumferential intervals.
+project:
+  name: cone_frustum
+
+surfaces:
+  frustum_side:
+    preset: cone_side
+    radius_bottom: 1.0
+    radius_top: 0.4
+    height: 1.5
+    points: {i: 129, j: 49}
+
+  top_cap:
+    preset: disk_ogrid
+    radius: 0.4
+    z: 1.5
+    normal: "+z"
+    center_block: {ni: 33, nj: 33}
+    radial_points: 17
+
+  bottom_cap:
+    preset: disk_ogrid
+    radius: 1.0
+    z: 0.0
+    normal: "-z"
+    center_block: {ni: 33, nj: 33}
+    radial_points: 25
+
+output:
+  directory: output
+  vtm: true
+  plot3d: true
+  json: true
+  quality_report: true
+  pyhyp_script: true

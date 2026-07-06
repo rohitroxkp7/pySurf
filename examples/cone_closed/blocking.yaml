@@ -1,0 +1,40 @@
+# Closed cone: full lateral surface including the apex (cone_ogrid, 8
+# blocks: 4 apex sub-quads + 4 outer quadrants) plus a conformal O-grid
+# base cap (5 blocks, local normal -z) -> watertight 13-block body.
+# The base circle nodes coincide because both surfaces use the same
+# radius, theta0, n_arc, axis, and center.
+#
+# Orientation: body axis along x.  axis "-x" points the apex direction
+# (base -> tip) along -x; with center [2, 0, 0] the TIP sits at the
+# origin and the BASE circle lies in the x = 2 plane (tip -> base runs
+# along +x; y is cross-stream, z the third axis).
+project:
+  name: cone_closed
+
+surfaces:
+  cone:
+    preset: cone_ogrid
+    radius: 1.0
+    height: 2.0
+    axis: "-x"
+    center: [2.0, 0.0, 0.0]
+    n_arc: 33            # must be odd (apex split lands on grid nodes)
+    radial_points: 49
+
+  base_cap:
+    preset: disk_ogrid
+    radius: 1.0
+    axis: "-x"
+    center: [2.0, 0.0, 0.0]
+    z: 0.0
+    normal: "-z"         # local frame: maps to +x (outward, downstream)
+    center_block: {ni: 33, nj: 33}
+    radial_points: 25
+
+output:
+  directory: output
+  vtm: true
+  plot3d: true
+  json: true
+  quality_report: true
+  pyhyp_script: true

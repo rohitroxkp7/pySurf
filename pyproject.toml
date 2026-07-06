@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pysurf"
+version = "0.1.0"
+description = "pySurf: user-guided multiblock structured surface mesh generator"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "pyyaml",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+pysurf = "pysurf.cli:main"
+ssm = "pysurf.cli:main"  # legacy alias
+
+[tool.setuptools.packages.find]
+include = ["pysurf*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

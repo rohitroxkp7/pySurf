@@ -1,0 +1,16 @@
+# Elliptic disk (semi-axes 2 x 1) as an O-grid.
+project:
+  name: elliptic_disk
+
+surfaces:
+  edisk:
+    preset: disk_ogrid
+    semi_axes: [2.0, 1.0]
+    center_block: {ni: 25, nj: 25}
+    radial_points: 21
+
+output:
+  directory: output
+  vtm: true
+  plot3d: true
+  quality_report: true

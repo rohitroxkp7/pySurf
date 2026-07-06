@@ -1,0 +1,17 @@
+# Full sphere as 6 equiangular cubed-sphere blocks (watertight, no poles).
+project:
+  name: sphere
+
+surfaces:
+  sphere:
+    preset: sphere_cubed
+    radius: 1.0
+    points: 33
+
+output:
+  directory: output
+  vtm: true
+  plot3d: true
+  json: true
+  quality_report: true
+  pyhyp_script: true

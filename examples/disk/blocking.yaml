@@ -1,0 +1,16 @@
+# Standalone circular disk (O-grid, 5 blocks).  Outer circle is open.
+project:
+  name: disk
+
+surfaces:
+  disk:
+    preset: disk_ogrid
+    radius: 1.0
+    center_block: {ni: 25, nj: 25}
+    radial_points: 21
+
+output:
+  directory: output
+  vtm: true
+  plot3d: true
+  quality_report: true

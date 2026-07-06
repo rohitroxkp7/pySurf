@@ -1,0 +1,39 @@
+# Full closed cylinder: periodic side + O-grid caps (11 blocks).
+# Conformity: side has 129 circumferential points (128 intervals);
+# each cap arc has 33 points (32 intervals x 4 arcs = 128).  Bottom cap
+# uses normal -z so the whole body has outward normals (pyHyp-ready).
+project:
+  name: cylinder
+  units: mm
+  description: structured surface meshing first test case
+
+surfaces:
+  cylinder_side:
+    preset: cylinder_side
+    radius: 1.0
+    height: 5.0
+    points: {i: 129, j: 65}
+
+  top_cap:
+    preset: disk_ogrid
+    radius: 1.0
+    z: 5.0
+    normal: "+z"
+    center_block: {ni: 33, nj: 33}
+    radial_points: 25
+
+  bottom_cap:
+    preset: disk_ogrid
+    radius: 1.0
+    z: 0.0
+    normal: "-z"
+    center_block: {ni: 33, nj: 33}
+    radial_points: 25
+
+output:
+  directory: output
+  vtm: true
+  plot3d: true
+  json: true
+  quality_report: true
+  pyhyp_script: true

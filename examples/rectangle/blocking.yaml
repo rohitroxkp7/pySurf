@@ -1,0 +1,19 @@
+# Planar rectangle with cosine clustering in i (both ends).
+project:
+  name: rectangle
+
+surfaces:
+  plate:
+    preset: plane
+    origin: [0.0, 0.0, 0.0]
+    u: [4.0, 0.0, 0.0]
+    v: [0.0, 1.0, 0.0]
+    points: {i: 81, j: 33}
+    spacing:
+      i: {kind: cosine}
+
+output:
+  directory: output
+  vtm: true
+  plot3d: true
+  quality_report: true

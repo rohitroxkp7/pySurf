@@ -1,0 +1,25 @@
+# vendored reference copy of pyHyp (separate project, kept local only)
+/pyhyp_ref/
+/pyhyp/
+
+# local planning notes (intentionally not pushed)
+/NEXT_STEPS.md
+/status.txt
+
+# generated example outputs
+examples/*/output/
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.venv/
+
+# editors / tooling
+/.claude/
+.vscode/
+.idea/

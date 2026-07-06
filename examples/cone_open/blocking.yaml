@@ -1,0 +1,23 @@
+# Open cone: lateral surface only (base left open).  The base circle
+# shows up as open edges in the connectivity report - those would need
+# boundary conditions (or a cap) downstream.
+project:
+  name: cone_open
+
+surfaces:
+  cone:
+    preset: cone_ogrid
+    radius: 1.0
+    height: 2.0
+    axis: "-x"                 # tip at origin, tip -> base along +x
+    center: [2.0, 0.0, 0.0]
+    n_arc: 33
+    radial_points: 49
+
+output:
+  directory: output
+  vtm: true
+  plot3d: true
+  json: true
+  quality_report: true
+  pyhyp_script: true
