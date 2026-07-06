@@ -156,6 +156,9 @@ examples/                cylinder, cone_open, cone_closed, cone_frustum,
 ## Roadmap (from the plan document)
 
 - **Phase 0/1 (this)**: analytic presets + YAML specs + connectivity + writers
+- **Next**: general `four_sided` patch preset — arbitrary 4-edge (spline) patches
+  via a global edge registry + TFI ([design](doc/four_sided_patch_design.md))
 - **Phase 2**: STEP AP242 reader (pythonOCC via conda), named face/edge lookup
+  ([test geometry spec](doc/cad_test_geometries.md))
 - **Phase 3/4**: CAD edge discretization, TFI on CAD faces w/ UV-space + projection
 - **Phase 5/6**: CGNS output, full pyHyp/ADflow workflow (wakes, families)
