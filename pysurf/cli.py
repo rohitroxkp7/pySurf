@@ -136,6 +136,27 @@ def cmd_presets(_args) -> int:
     return 0
 
 
+def cmd_inspect_cad(args) -> int:
+    path = Path(args.step_file)
+    if not path.exists():
+        print(f"file not found: {path}", file=sys.stderr)
+        return 2
+    if not args.quick:
+        try:
+            from pysurf.cad.reader import inspect_cad  # needs pythonOCC
+
+            print(inspect_cad(path))
+            return 0
+        except ImportError:
+            print("(pythonOCC not available in this Python - falling back to "
+                  "the text scan; run inside the pysurf-cad conda env for "
+                  "full topology)\n")
+    from pysurf.cad.step_scan import format_report, scan_step
+
+    print(format_report(scan_step(path)))
+    return 0
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(
         prog="pysurf", description="structured surface mesher"
@@ -153,6 +174,16 @@ def main(argv=None) -> int:
 
     p_pre = sub.add_parser("presets", help="list available surface presets")
     p_pre.set_defaults(func=cmd_presets)
+
+    p_cad = sub.add_parser(
+        "inspect-cad", help="inspect a STEP file: faces, names, surface types"
+    )
+    p_cad.add_argument("step_file", help="path to .step/.stp file")
+    p_cad.add_argument(
+        "--quick", action="store_true",
+        help="force the dependency-free text scan (skip pythonOCC)",
+    )
+    p_cad.set_defaults(func=cmd_inspect_cad)
 
     args = parser.parse_args(argv)
     try:
